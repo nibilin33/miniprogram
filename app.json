@@ -6,7 +6,7 @@
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Dgame",
+    "navigationBarTitleText": "钉Game",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true
   },
