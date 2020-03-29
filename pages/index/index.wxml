@@ -1,0 +1,14 @@
+<view class="game">
+    <canvas
+        id="games" 
+        style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"
+        type="2d"
+        disable-scroll="true"
+        bindtouchstart="touchstart"
+        bindtouchend="touchend"></canvas>
+    <audio src="./video/heartbeat2.mp3" id="music" loop>
+    </audio>
+    <button size="mini" bindtap="drawImage" type="primary">开始</button>
+    <button size="mini" type="warn">静音</button>
+
+</view>
