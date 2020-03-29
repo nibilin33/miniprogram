@@ -2,7 +2,7 @@ const dingding = "imgs/dingding.png";
 import { getImage } from "./utils";
 export default class Bird {
   constructor(context) {
-    this.a = 2;
+    this.a = 1.95;
     this.context = context;
     this.img = null;
     this.direction = 1;
@@ -58,8 +58,8 @@ export default class Bird {
       this.img,
       this.x,
       this.y,
-      this.birdWidth,
-      this.birdHeight
+      this.birdHeight,
+      this.birdWidth
     );
   }
   //碰撞检测

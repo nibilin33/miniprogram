@@ -1,4 +1,4 @@
-const bg = 'imgs/bg6.jpg';
+const bg = 'imgs/bg3.jpg';
 import {getImage,getCanvasById} from './utils';
 
 module.exports =  class Background {

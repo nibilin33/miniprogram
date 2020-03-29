@@ -12,7 +12,8 @@
     bindended="changeMusic"
     >
     </audio>
-    <button size="mini" bindtap="drawImage" type="primary">开始</button>
-    <button size="mini" type="warn">静音</button>
+    <button wx:if="{{isGameOver}}" size="mini" type="primary" bindtap="drawImage">开始</button>
+    <button type="warn" size="mini" wx:else bindtap="stop">结束</button>
+    <button size="mini" type="default">静音</button>
 
 </view>
