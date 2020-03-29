@@ -6,7 +6,11 @@
         disable-scroll="true"
         bindtouchstart="touchstart"
         bindtouchend="touchend"></canvas>
-    <audio src="./video/mp3cut.mp3" id="music" loop="true">
+    <audio 
+    src="./video/mp3cut1.mp3"
+    id="music"
+    bindended="changeMusic"
+    >
     </audio>
     <button size="mini" bindtap="drawImage" type="primary">开始</button>
     <button size="mini" type="warn">静音</button>

@@ -1,6 +1,7 @@
 export default class Music {
     static audio = null
     static status = 'play'
+    static count = 0
     static init() {
         Music.audio = wx.createAudioContext('music');
         //document.getElementById("music");
@@ -8,6 +9,14 @@ export default class Music {
     static destroy() {
         Music.pause();
         Music.audio = null;
+    }
+    static loop() {
+        Music.count++;
+        let src = Music.count%2+1;
+        console.log('loop');
+        Music.audio.setSrc(`./video/mp3cut${src}.mp3`);
+        Music.audio.seek(0);
+        Music.audio.play();
     }
     static pause() {
         Music.audio.pause();
@@ -17,7 +26,6 @@ export default class Music {
     }
     static play() {
         Music.audio.play();
-        Music.audio.seek(20);
         Music.status = 'pause';
     }
 }

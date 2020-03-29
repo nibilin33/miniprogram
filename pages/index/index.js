@@ -77,7 +77,10 @@ Page({
 	},
 	muteAudio: function() {
 		Music[Music.status]();
-	},
+    },
+    changeMusic:function() {
+        Music.loop();
+    },
 	init:function() {
 		const query = wx.createSelectorQuery();
 		query.select('#games')
