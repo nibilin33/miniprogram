@@ -11,11 +11,13 @@ export default class Music {
     }
     static pause() {
         Music.audio.pause();
+        Music.audio.seek(0);
         Music.status = 'play';
         //Music.audio.load();
     }
     static play() {
         Music.audio.play();
+        Music.audio.seek(20);
         Music.status = 'pause';
     }
 }

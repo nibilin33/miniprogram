@@ -88,7 +88,7 @@ Page({
 		  const {windowHeight,windowWidth} = await wx.getSystemInfo();
 		  this.setData({
 			canvasWidth: windowWidth,
-			canvasHeight: windowHeight - 100
+			canvasHeight: windowHeight - 20
 		  });
 		  this.setData({
 			bird: new Bird(context),
