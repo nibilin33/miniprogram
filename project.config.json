@@ -7,14 +7,15 @@
 		"urlCheck": false,
 		"es6": false,
 		"enhance": true,
-		"postcss": false,
+		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
-		"nodeModules": false,
+		"nodeModules": true,
 		"autoAudits": false,
-		"showShadowRootInWxmlPanel": false,
-		"scopeDataCheck": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": true,
+		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -22,13 +23,12 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"bundle": true
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.3",
-	"appid": "wx40beec298691deeb",
-	"projectname": "miniprogram",
+	"libVersion": "2.10.4",
+	"appid": "wx8d86fb6311ea51e6",
+	"projectname": "game",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

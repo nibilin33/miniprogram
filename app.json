@@ -1,19 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/game/game"
+    "pages/game/game",
+    "pages/logs/logs"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "钉Game",
-    "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true
+    "navigationBarTitleText": "Dgame",
+    "navigationBarTextStyle": "black"
   },
-  "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
-  },
-  "debug": true,
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
