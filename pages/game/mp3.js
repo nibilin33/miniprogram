@@ -4,7 +4,6 @@ export default class Music {
     static count = 0
     static init() {
         Music.audio = wx.createAudioContext('music');
-        //document.getElementById("music");
     }
     static destroy() {
         Music.pause();
@@ -22,7 +21,6 @@ export default class Music {
         Music.audio.pause();
         Music.audio.seek(0);
         Music.status = 'play';
-        //Music.audio.load();
     }
     static play() {
         Music.audio.play();
