@@ -1,31 +1,25 @@
-import {getImage} from './utils';
-const bullet = 'imgs/bullet.png';
+const bullet = '../../static/imgs/bullet.png';
 class Bullet {
-    constructor(context) {
+    constructor(context,canvas) {
         this.context = context;
         this.speed = 20;
-        this.x = this.context.canvas.width-10;
-        this.y = Math.floor(Math.random()*this.context.canvas.height+1);
+        this.canvas = canvas;
+        this.x = this.canvas.width-10;
+        this.y = Math.floor(Math.random()*this.canvas.height+1);
         this.stop = null;
-        this.img = null;
-        this.init();
-    }
-    async init() {
-        const {pixelRatio} = await wx.getSystemInfo();
-        this.bulletHeight = 20/pixelRatio;
-        this.bulletWidth = 60/pixelRatio;
+        this.img = bullet;
+        this.bulletHeight = 20;
+        this.bulletWidth = 60;
     }
     async draw() {
-        if(!this.img) {
-            this.img = await getImage(bullet);
-        }
         this.context.drawImage(this.img,this.x,this.y,this.bulletWidth,this.bulletHeight);
+        this.context.draw(true);
     }
     move() {
         this.x = this.x - this.speed;
         this.stop = setTimeout(()=>{
             this.move();
-        },200);
+        },100);
     }
     destroy() {
         clearTimeout(this.stop);
@@ -33,8 +27,9 @@ class Bullet {
     }
 }
 export default class Gun {
-    constructor(context) {
+    constructor(context,canvas) {
         this.context = context;
+        this.canvas = canvas;
         this.init();
     }
     init() {
@@ -45,7 +40,7 @@ export default class Gun {
         this.stop = null;
     }
     fire(){
-        let bullet = new Bullet(this.context);
+        let bullet = new Bullet(this.context, this.canvas);
         this.list.push(bullet);
         bullet.move();
         this.stop = setTimeout(()=>{

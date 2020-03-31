@@ -1,16 +1,16 @@
-const bg = 'imgs/bg3.jpg';
-import {getImage,getCanvasById} from './utils';
+const bg = '../../static/imgs/bg3.jpg';
+import {getImage} from './utils';
 
 module.exports =  class Background {
-    constructor(context) {
+    constructor(context,width,height) {
         this.context = context;
         this.speed = 5;
         this.x = 0;
         this.xvelocity = 9;
-        this.width = this.context.canvas.width;
-        this.height = this.context.canvas.height;
+        this.width = width;
+        this.height = height;
         this.stop = null;
-        this.img = null;
+        this.img = bg;
         this.xtotal = 0;
     }
 
@@ -23,13 +23,11 @@ module.exports =  class Background {
     }
 
     async draw() {
-        if(!this.img) {
-            this.img = await getImage(bg);
-        }
         this.context.drawImage(this.img,-this.x,0,this.width,this.height);
         this.context.drawImage(this.img,this.width-this.x,0,this.width,this.height);  
         this.context.font = `15px Comic Sans MS`;
         this.context.fillText(this.xtotal, this.width*0.9, this.height-10);
+        this.context.draw(true);
     }
 
     stopMove() {

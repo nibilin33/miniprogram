@@ -22,7 +22,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -67,23 +69,23 @@ Page({
     Music.loop();
   },
   async init() {
-    const canvas = await getCanvasById("#games");
-    const context = canvas.getContext("2d");
+    const context = wx.createCanvasContext('games');
     const { windowHeight, windowWidth } = await wx.getSystemInfo();
     this.setData({
       canvasWidth: windowWidth,
       canvasHeight: windowHeight - 50
     });
+    const canvas = { width: this.data.canvasWidth, height: this.data.canvasHeight };
     this.setData({
-      bird: new Bird(context),
-      bg: new Background(context, canvas.width, canvas.height)
+      bird: new Bird(context, canvas),
+      bg: new Background(context, this.data.canvasWidth, this.data.canvasHeight)
     });
     await this.data.bg.draw();
     await this.data.bird.draw();
     Music.init();
     this.fillText("按住屏幕角色上移，松开角色下移", "15px");
     this.setData({
-      gun: new Gun(context)
+      gun: new Gun(context, canvas)
     });
   },
   touchstart: function() {
@@ -93,12 +95,12 @@ Page({
     this.data.bird.down();
   },
   fillText: async function(txt, fontSize = "30px") {
-    const canvas = await getCanvasById("#games");
-    const ctx = canvas.getContext("2d");
+    const ctx =  wx.createCanvasContext('games');
     ctx.font = `${fontSize} Comic Sans MS`;
     ctx.fillStyle = "red";
     ctx.textAlign = "center";
-    ctx.fillText(txt, canvas.width / 2, canvas.height / 2);
+    ctx.fillText(txt, this.data.canvasWidth / 2, this.data.canvasHeight / 2);
+    ctx.draw(true);
   },
   gameOver: function() {
     this.fillText("Game Over!");
@@ -108,9 +110,8 @@ Page({
     Music.pause();
   },
   clear: async function() {
-    const canvas = await getCanvasById("#games");
-    const context = canvas.getContext("2d");
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    const context = wx.createCanvasContext('games');
+    context.clearRect(0, 0, this.data.canvasWidth, this.data.canvasHeight);
   },
   stop: function() {
     this.gameOver();
@@ -134,9 +135,8 @@ Page({
   },
   drawImage: async function() {
     if (this.data.isGameOver) {
-      const canvas = await getCanvasById("#games");
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const ctx = wx.createCanvasContext('games');
+      ctx.clearRect(0, 0, this.data.canvasWidth, this.data.canvasHeight);
     }
     Music.play();
     this.setData({

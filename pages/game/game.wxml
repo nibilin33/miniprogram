@@ -1,14 +1,21 @@
 <view class="game">
-    <canvas
-        canvas-id="games"
+    <!-- <canvas
+        canvas-id="myCanvas"
         id="games" 
         style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"
         type="2d"
         disable-scroll="true"
         bindtouchstart="touchstart"
-        bindtouchend="touchend"></canvas>
+        bindtouchend="touchend"></canvas> -->
+    <canvas
+        canvas-id="games"
+        style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"
+        disable-scroll="true"
+        bindtouchstart="touchstart"
+        bindtouchend="touchend"
+        ></canvas>
     <audio 
-    src="./video/mp3cut1.mp3"
+    src="static/video/mp3cut1.mp3"
     id="music"
     bindended="changeMusic"
     >

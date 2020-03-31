@@ -1,21 +1,21 @@
-const dingding = "imgs/dingding.png";
+const dingding = "../../static/imgs/dingding.png";
 import { getImage } from "./utils";
 export default class Bird {
-  constructor(context) {
-    this.a = 1.95;
+  constructor(context,canvas) {
+    this.a = 8.95;
     this.context = context;
-    this.img = null;
+    this.img = dingding;
     this.direction = 1;
+    this.canvas = canvas;
     this.init();
   }
   async init() {
-    this.x = this.context.canvas.width / 4;
+    this.x = this.canvas.width / 4;
     this.y = 0;
-    this.speed = 5;
+    this.speed = 10;
     this.stop = null;
-    const { pixelRatio } = await wx.getSystemInfo();
-    this.birdHeight = 60 / pixelRatio;
-    this.birdWidth = 40 / pixelRatio;
+    this.birdHeight = 60;
+    this.birdWidth = 40;
   }
   //向上加速speed = speed + at,t=1s
   up() {
@@ -44,16 +44,13 @@ export default class Bird {
     }
     this.stop = setTimeout(() => {
       this.move();
-    }, 50);
+    }, 100);
   }
   stopMove() {
     clearTimeout(this.stop);
     this.stop = null;
   }
   async draw() {
-    if (!this.img) {
-      this.img = await getImage(dingding);
-    }
     this.context.drawImage(
       this.img,
       this.x,
@@ -61,11 +58,12 @@ export default class Bird {
       this.birdHeight,
       this.birdWidth
     );
+    this.context.draw(true);
   }
   //碰撞检测
   detection() {
     return (
-      this.y > this.context.canvas.height - this.birdHeight / 2 || this.y < 0
+      this.y > this.canvas.height - this.birdHeight / 2 || this.y < 0
     );
   }
 }

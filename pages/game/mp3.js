@@ -12,7 +12,7 @@ export default class Music {
     static loop() {
         Music.count++;
         let src = Music.count%2+1;
-        Music.audio.setSrc(`./video/mp3cut${src}.mp3`);
+        Music.audio.setSrc(`static/video/mp3cut${src}.mp3`);
         Music.audio.seek(0);
         Music.audio.play();
     }
