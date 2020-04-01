@@ -1,19 +1,11 @@
-<view class="game">
-    <canvas
-        id="games" 
-        style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"
-        type="2d"
-        disable-scroll="true"
-        bindtouchstart="touchstart"
-        bindtouchend="touchend"></canvas>
-    <audio 
-    src="./video/mp3cut1.mp3"
-    id="music"
-    bindended="changeMusic"
-    >
-    </audio>
-    <button wx:if="{{isGameOver}}" size="mini" type="primary" bindtap="drawImage">开始</button>
-    <button type="warn" size="mini" wx:else bindtap="stop">结束</button>
-    <button size="mini" type="default">静音</button>
-
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"         mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <button bindtap="enterGame" class="button">进入游戏</button>
+    </block>
+  </view>
 </view>
