@@ -35,38 +35,7 @@ export default class Main {
   }
   addEvent() {
       this.touchHandler = this.touchEventHandler.bind(this);
-      console.log('adddd');
-      canvas.addEventListener('touchstart', this.touchHandler)
-      // document.body.addEventListener('click',()=>{
-      //   console.log('fuckkk');
-      // })
-      // canvas.addEventListener('touchstart', ()=>{
-      //   console.log('fuckktouchessss');
-      // });
-      // canvas.addEventListener('touchend', ((e) => {
-      //     e.preventDefault();
-      //     this.bird.down();
-      // }).bind(this));
-      // canvas.addEventListener('touchstart', ((e) => {
-      //   console.log('touchstart');
-      //   e.preventDefault();
-      //   if(!this.isGameOver) {
-      //     this.drawImage();
-      //   }else{
-      //     this.bird.up();
-      //   }
-      // }).bind(this))
-    // canvas.addEventListener(downEvent, () => {
-    //   console.log('touchhh');
-    //   if(!this.isGameOver) {
-    //     this.drawImage();
-    //   }else{
-    //     this.bird.up();
-    //   }
-    // });
-    // canvas.addEventListener(upEvent, () => {
-    //   this.bird.down();
-    // });
+      canvas.addEventListener('touchstart', this.touchHandler);
   }
   fillText(txt, fontSize = "30px") {
     const ctx = context;
