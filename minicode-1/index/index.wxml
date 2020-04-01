@@ -1,0 +1,6 @@
+<view style="text-align: center;">
+  <video id="video" autoplay="{{true}}" controls="{{false}}" style="width: 300px; height: 200px;" src="{{src}}" bindloadedmetadata="loadedmetadata"></video>
+  <view style="display: inline-block; width: 300px; height: 200px;">
+    <canvas id="cvs1" type="2d" style="display: inline-block; border: 1px solid #CCC; width: 300px; height: {{h}}px;"></canvas>
+  </view>
+</view>
