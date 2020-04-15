@@ -28,3 +28,11 @@ button{
 .play-button:hover{
     background-color: rgba(0,0,0,.5);
 }
+.cube {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Other transform properties here */
+ }

@@ -9,7 +9,7 @@
         bindtouchend="touchend"></canvas> -->
     <canvas
         canvas-id="games"
-        style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"
+        style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;transform: translateZ(0);"
         disable-scroll="true"
         bindtouchstart="touchstart"
         bindtouchend="touchend"
